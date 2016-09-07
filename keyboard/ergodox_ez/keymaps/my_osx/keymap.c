@@ -60,15 +60,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Cursor + Num Layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |      |      |      |      |      |      |           |  =>  |      |      |      |      |      |        |
+ * |        |      |      |      |      |      |      |           |  =>  |  <   |  >   |      |      |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        | HOME | PgUp |  Up  | PgDn |      |      |           |  &   |      |  7   |  8   |  9   |  (   |   )    |
+ * |        | HOME | PgUp |  Up  | PgDn |      |      |           |  &   |  (   |  )   |  7   |  8   |  9   |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |GuiLft| Left | Down |Right |GuiRht|------|           |------|      |  4   |  5   |  6   |  {   |   }    |
+ * |        |GuiLft| Left | Down |Right |GuiRht|------|           |------|  {   |  }   |  4   |  5   |  6   |        |
  * |--------+------+------+------+------+------|      |           |  |   |------+------+------+------+------+--------|
- * |        | END  |      |      |      |      |      |           |      |  0   |  1   |  2   |  3   |  [   |   ]    |
+ * |        | END  |      |      |      |      |      |           |      |  [   |  ]   |  1   |  2   |  3   |  0     |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |  0   |      |      |  <   |   >  |
+ *   |      |      |      |      |      |                                       |  0   |  0   |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
@@ -90,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                KC_TRNS,
                                KC_TRNS,KC_TRNS,KC_TRNS,
        // right hand
-       M(M_AROW), KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_AMPR,   KC_TRNS, KC_7,    KC_8,   KC_9,    KC_LPRN, KC_RPRN,
-                  KC_TRNS, KC_4,    KC_5,   KC_6,    KC_LCBR, KC_RCBR,
-       KC_PIPE,   KC_0,    KC_1,    KC_2,   KC_3,    KC_LBRC, KC_RBRC,
-                           KC_0,    KC_TRNS,KC_TRNS, KC_LABK, KC_RABK,
+       M(M_AROW), KC_LABK, KC_RABK, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_AMPR,   KC_LPRN, KC_RPRN, KC_7,   KC_8,    KC_9,    KC_TRNS,
+                  KC_LCBR, KC_RCBR, KC_4,   KC_5,    KC_6,    KC_TRNS,
+       KC_PIPE,   KC_LBRC, KC_RBRC, KC_1,   KC_2,    KC_3,    KC_0,
+                           KC_0,    KC_0,   KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |  =>  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11   |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |ShHome|ShPgUp| ShUp |ShPgDn|      |      |           |  &   |      |      |UpEtr |      |      |        |
+ * |        |ShHome|ShPgUp| ShUp |ShPgDn|      |      |           |  &   |      |      |UpEtr |      |      |  F12   |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |GuShLt|ShLeft|ShDown|ShRht |GuShRt|------|           |------| F15  | Bksp |Enter | Del  |      |        |
  * |--------+------+------+------+------+------|      |           |  |   |------+------+------+------+------+--------|
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                           KC_TRNS, KC_TRNS, KC_TRNS,
        // right hand
        M(M_AROW),KC_F6,   KC_F7,          KC_F8,      KC_F9,   KC_F10,  KC_F11,
-       KC_AMPR,  KC_TRNS, KC_TRNS,        M(M_UENT),  KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_AMPR,  KC_TRNS, KC_TRNS,        M(M_UENT),  KC_TRNS, KC_TRNS, KC_F12,
                  KC_F15,  KC_BSPC,        KC_ENTER,   KC_DELT, KC_TRNS, KC_TRNS,
        KC_PIPE,  KC_F16,  LSFT(KC_ENTER), M(M_DENT),  KC_TRNS, KC_TRNS, KC_TRNS,
                           KC_TRNS,        KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
