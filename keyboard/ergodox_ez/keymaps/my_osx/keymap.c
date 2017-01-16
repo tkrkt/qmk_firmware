@@ -18,6 +18,7 @@
 #define M_LCMT 16
 #define M_RCMT 17
 #define M_FUNC 18
+#define M_ABK 19
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -152,13 +153,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | RESET  |      |      |      |      |      |      |           |      |  ^   |  &   |  *   |  (   |  )   |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      | Lclk | MsUp | Rclk | Rclk | WhUp |           | Lclk |  *   |  (   |  )   |()=>{}|      |        |
+ * |        |      | Lclk | MsUp | Rclk | Rclk | WhUp |           | Lclk |  *   |      |()=>{}|  {   |  }   |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | ACL0   | ACL0 |MsLeft|MsDown|MsRght| Lclk |------|           |------|  +   |  {   |  }   |  =   |      |        |
+ * | ACL0   | ACL0 |MsLeft|MsDown|MsRght| Lclk |------|           |------|  +   |  ()  |  {}  |  [   |  ]   |        |
  * |--------+------+------+------+------+------| WhDn |           | Rclk |------+------+------+------+------+--------|
- * |        |      | WhUp | Cclk | WhDn |      |      |           |      |      |  [   |  ]   |  <   |  >   |        |
+ * |        |      | WhUp | Cclk | WhDn |      |      |           |      |      |  []  |  <>  |  <   |  >   |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |  <   |  >   |      |      |      |
+ *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
@@ -170,6 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [MUSE] = KEYMAP(
+       // left hand
        RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN2, KC_WH_U,
        KC_ACL0, KC_ACL0, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1,
@@ -178,12 +180,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
                                   KC_ACL0, KC_ACL0, KC_TRNS,
-    // right hand
-       KC_TRNS, KC_CIRC,  KC_AMPR, KC_ASTR, KC_LPRN,   KC_RPRN,   KC_TRNS,
-       KC_BTN1, KC_ASTR,  KC_LPRN, KC_RPRN, M(M_FUNC), KC_TRNS,   KC_TRNS,
-                KC_PLUS,  KC_LCBR, KC_RCBR, KC_EQL,    KC_TRNS,   KC_TRNS,
-       KC_BTN2, KC_TRNS,  KC_LBRC, KC_RBRC, KC_LABK,   KC_RABK,   KC_TRNS,
-                          KC_LABK, KC_RABK, KC_TRNS,   KC_TRNS,   KC_TRNS,
+       // right hand
+       KC_TRNS, KC_CIRC,  KC_AMPR,  KC_ASTR,   KC_LPRN,  KC_RPRN,  KC_TRNS,
+       KC_BTN1, KC_ASTR,  KC_TRNS,  M(M_FUNC), KC_LCBR,  KC_RCBR,  KC_TRNS,
+                KC_PLUS,  M(M_PRN), M(M_CBR),  KC_LBRC,  KC_RBRC,  KC_TRNS,
+       KC_BTN2, KC_TRNS,  M(M_BRC), M(M_ABK),   KC_LABK,  KC_RABK,  KC_TRNS,
+                          KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
@@ -233,6 +235,11 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case M_BRC:
         if (record->event.pressed) {
           return MACRO(T(LBRC), T(RBRC), END);
+        }
+        break;
+        case M_ABK:
+        if (record->event.pressed) {
+          return MACRO(D(LSFT), T(COMM), T(DOT), U(LSFT), END);
         }
         break;
         case M_LCMT:
