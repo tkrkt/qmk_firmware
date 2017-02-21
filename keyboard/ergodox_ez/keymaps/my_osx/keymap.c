@@ -157,9 +157,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      | Lclk | MsUp | Rclk | Rclk | WhUp |           |  &   |  *   |  =>  |()=>{}|  {   |  }   |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | ACL0   | ACL0 |MsLeft|MsDown|MsRght| Lclk |------|           |------|  +   |  ()  |  {}  |  [   |  ]   |        |
+ * | ACL0   | ACL0 |MsLeft|MsDown|MsRght| Lclk |------|           |------| F15  |  ()  |  {}  |  [   |  ]   |        |
  * |--------+------+------+------+------+------| WhDn |           |  |   |------+------+------+------+------+--------|
- * |        |      | WhUp | Cclk | WhDn |      |      |           |      |  =   |  []  |  <>  |  <   |  >   |        |
+ * |        |      | WhUp | Cclk | WhDn |      |      |           |      | F16  |  []  |  <>  |  <   |  >   |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -185,8 +185,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_TRNS, KC_CIRC,  KC_AMPR,   KC_ASTR,   KC_LPRN,  KC_RPRN,  KC_TRNS,
        KC_AMPR, KC_ASTR,  M(M_AROW), M(M_FUNC), KC_LCBR,  KC_RCBR,  KC_TRNS,
-                KC_PLUS,  M(M_PRN),  M(M_CBR),  KC_LBRC,  KC_RBRC,  KC_TRNS,
-       KC_PIPE, KC_EQL,   M(M_BRC),  M(M_ABK),   KC_LABK,  KC_RABK,  KC_TRNS,
+                KC_F15,   M(M_PRN),  M(M_CBR),  KC_LBRC,  KC_RBRC,  KC_TRNS,
+       KC_PIPE, KC_F16,   M(M_BRC),  M(M_ABK),   KC_LABK,  KC_RABK,  KC_TRNS,
                           KC_TRNS,   KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
