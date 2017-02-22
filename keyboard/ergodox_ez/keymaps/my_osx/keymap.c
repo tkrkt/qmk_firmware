@@ -37,9 +37,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | Ctrl | Alt  | Cmd  | F17  | F18  |                                       | Left |  Up  | Down |Right |   _  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CpyPst| Del  |       |VolUp |Enter |
+ *                                        |CpyPst|CmAlL |       |VolUp |Enter |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |Enter |       |VolDn |        |      |
+ *                                 |      |      |CmAlJ |       |VolDn |        |      |
  *                                 |  L1  |Space |------|       |------|  L3    |  L2  |
  *                                 |      |      |  L3  |       |  L1  |        |      |
  *                                 `--------------------'       `----------------------'
@@ -53,8 +53,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LGUI,  KC_A,        KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,  CTL_T(KC_Z), KC_X,   KC_C,   KC_V,   KC_B,   KC_DQUO,
         KC_LCTL,  KC_LALT,     KC_LGUI,KC_F17, KC_F18,
-                                               M(M_VCX),   KC_DELT,
-                                                           KC_ENTER,
+                                               M(M_VCX),   LGUI(LALT(KC_L)),
+                                                           LGUI(LALT(KC_J)),
                                       MO(SYMB),KC_SPC,     MO(MUSE),
         // right hand
         KC_ASTR,  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,             KC_BSPC,
