@@ -72,13 +72,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |  !   |  @   |  #   |  $   |  %   |      |           |      |  ^   |  &   |  *   |  (   |  )   |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        | HOME | PgUp |  Up  | PgDn |      |      |           |  |   |  *   |  7   |  8   |  9   |      |        |
+ * |        | HOME | PgUp |  Up  | PgDn |      |      |           |  |   |  *   |  1   |  2   |  3   |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |GuiLft| Left | Down |Right |GuiRht|------|           |------|  +   |  4   |  5   |  6   |  :   |        |
  * |--------+------+------+------+------+------|      |           |  &   |------+------+------+------+------+--------|
- * |        | END  |      |      |      |      |      |           |      |  0   |  1   |  2   |  3   |      |        |
+ * |        | END  |      |      |      |      |      |           |      |  =   |  7   |  8   |  9   |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |  0   |  %   |  .   |      |      |
+ *   |      |      |      |      |      |                                       |  *   |  0   |  .   |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
@@ -101,10 +101,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_TRNS,KC_TRNS,KC_TRNS,
        // right hand
        KC_TRNS,  KC_CIRC, KC_AMPR,  KC_ASTR,  KC_LPRN, KC_RPRN, KC_TRNS,
-       KC_PIPE,  KC_ASTR, KC_7,     KC_8,     KC_9,    KC_TRNS, KC_TRNS,
+       KC_PIPE,  KC_ASTR, KC_1,     KC_2,     KC_3,    KC_TRNS, KC_TRNS,
                  KC_PLUS, KC_4,     KC_5,     KC_6,    KC_COLN, KC_TRNS,
-       KC_AMPR,  KC_0,    KC_1,     KC_2,     KC_3,    KC_TRNS, KC_TRNS,
-                          KC_0,     KC_PERC,  KC_DOT,  KC_TRNS, KC_TRNS,
+       KC_AMPR,  KC_EQL,  KC_7,     KC_8,     KC_9,    KC_TRNS, KC_TRNS,
+                          KC_ASTR,  KC_0,     KC_DOT,  KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
