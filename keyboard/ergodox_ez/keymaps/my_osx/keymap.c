@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        | HOME | PgUp |  Up  | PgDn |      |      |           |  |   |  *   |  1   |  2   |  3   |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |GuiLft| Left | Down |Right |GuiRht|------|           |------|  +   |  4   |  5   |  6   |  :   |        |
+ * |        |GuiLft| Left | Down |Right |GuiRht|------|           |------|  +   |  4   |  5   |  6   |      |        |
  * |--------+------+------+------+------+------|      |           |  &   |------+------+------+------+------+--------|
  * |        | END  |      |      |      |      |      |           |      |  =   |  7   |  8   |  9   |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_TRNS,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
        KC_PIPE,  KC_ASTR, KC_1,     KC_2,     KC_3,    KC_TRNS, KC_TRNS,
-                 KC_PLUS, KC_4,     KC_5,     KC_6,    KC_COLN, KC_TRNS,
+                 KC_PLUS, KC_4,     KC_5,     KC_6,    KC_TRNS, KC_TRNS,
        KC_AMPR,  KC_EQL,  KC_7,     KC_8,     KC_9,    KC_TRNS, KC_TRNS,
                           KC_COMM,  KC_0,     KC_DOT,  KC_PERC, KC_TRNS,
        KC_TRNS, KC_TRNS,
