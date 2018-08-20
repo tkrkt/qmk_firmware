@@ -18,6 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef COMMAND_H
 #define COMMAND
 
+/* FIXME: Add doxygen comments for the behavioral defines in here. */
+
 /* TODO: Refactoring */
 typedef enum { ONESHOT, CONSOLE, MOUSEKEY } command_state_t;
 extern command_state_t command_state;
@@ -27,6 +29,7 @@ bool command_extra(uint8_t code);
 bool command_console_extra(uint8_t code);
 
 #ifdef COMMAND_ENABLE
+uint8_t numkey2num(uint8_t code);
 bool command_proc(uint8_t code);
 #else
 #define command_proc(code)      false

@@ -2,26 +2,44 @@
 # Script to make a new quantum project
 # Jack Humbert 2015
 
-if [ -z "$1" ]; then
-	echo "Usage: $0 <keyboard_name>"
+KEYBOARD=$1
+KEYBOARD_TYPE=$2
+
+if [ -z "$KEYBOARD" ]; then
+    echo "Usage:   $0 <keyboard_name> <keyboard_type>"
+    echo "Example: $0 gh60 avr"
+    echo "Example: $0 bfake ps2avrgb"
+    exit 1
+elif [ -z "$KEYBOARD_TYPE" ]; then
+  KEYBOARD_TYPE=avr
+fi
+
+if [ $KEYBOARD_TYPE != "avr" -a $KEYBOARD_TYPE != "ps2avrgb" ]; then
+  echo "Invalid keyboard type target"
+  exit 1
+fi
+
+if [ -e "keyboards/$1" ]; then
+	echo "Error! keyboards/$1 already exists!"
 	exit 1
 fi
 
-KEYBOARD=$1
-KEYBOARD_UPPERCASE=$(echo $1 | awk '{print toupper($0)}')
+cd "$(dirname "$0")/.."
 
-mkdir keyboard/$1
-mkdir keyboard/$1/keymaps
-mkdir keyboard/$1/keymaps/default
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" -e "s;%KEYBOARD_UPPERCASE%;$KEYBOARD_UPPERCASE;g" quantum/template/template.h > keyboard/$KEYBOARD/$KEYBOARD.h
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/template.c > keyboard/$KEYBOARD/$KEYBOARD.c
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/config.h > keyboard/$KEYBOARD/config.h
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/README.md > keyboard/$KEYBOARD/README.md
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/Makefile > keyboard/$KEYBOARD/Makefile
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/keymaps/default/keymap.c > keyboard/$KEYBOARD/keymaps/default/keymap.c
+KEYBOARD_UPPERCASE=$(echo $1 | awk '{print toupper($0)}')
+KEYBOARD_NAME=$(basename $1)
+KEYBOARD_NAME_UPPERCASE=$(echo $KEYBOARD_NAME | awk '{print toupper($0)}')
+
+
+cp -r quantum/template/base keyboards/$KEYBOARD
+cp -r quantum/template/$KEYBOARD_TYPE/. keyboards/$KEYBOARD
+
+mv keyboards/${KEYBOARD}/template.c keyboards/${KEYBOARD}/${KEYBOARD_NAME}.c
+mv keyboards/${KEYBOARD}/template.h keyboards/${KEYBOARD}/${KEYBOARD_NAME}.h
+find keyboards/${KEYBOARD} -type f -exec sed -i '' -e "s;%KEYBOARD%;${KEYBOARD_NAME};g" {} \;
+find keyboards/${KEYBOARD} -type f -exec sed -i '' -e "s;%KEYBOARD_UPPERCASE%;${KEYBOARD_NAME_UPPERCASE};g" {} \;
 
 echo "######################################################"
-echo "# keyboard/$KEYBOARD project created. To start"
-echo "# working on things, use the following command:"
-echo "# cd keyboard/$KEYBOARD"
+echo "# /keyboards/$KEYBOARD project created. To start"
+echo "# working on things, cd into keyboards/$KEYBOARD"
 echo "######################################################"
