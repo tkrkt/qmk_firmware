@@ -4,6 +4,7 @@
 *.eep
 *.elf
 *.hex
+!keyboards/ergodox_ez/keymaps/my_osx/*.hex
 *.qmk
 !util/bootloader.hex
 !quantum/tools/eeprom_reset.hex
