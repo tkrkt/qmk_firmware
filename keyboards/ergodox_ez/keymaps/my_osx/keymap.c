@@ -33,12 +33,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | Cmd    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
  * |--------+------+------+------+------+------|  "   |           |  =   |------+------+------+------+------+--------|
- * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl| RShift |
+ * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | Ctrl | Alt  | Cmd  | F17  | F18  |                                       | Left |  Up  | Down |Right |   _  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CpyPst|CmAlL |       |VolUp |Enter |
+ *                                        |GuCm5 |CmAlL |       |VolUp |Enter |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      |CmAlJ |       |VolDn |        |      |
  *                                 |  L1  |Space |------|       |------|  L3    |  L2  |
@@ -54,15 +54,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LGUI,  KC_A,        KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,  CTL_T(KC_Z), KC_X,   KC_C,   KC_V,   KC_B,   KC_DQUO,
         KC_LCTL,  KC_LALT,     KC_LGUI,KC_F17, KC_F18,
-                                               M(M_VCX),   LGUI(LALT(KC_L)),
-                                                           LGUI(LALT(KC_J)),
-                                      MO(SYMB),KC_SPC,     MO(MUSE),
+                                                LGUI(LSFT(KC_5)), LGUI(LALT(KC_L)),
+                                                                  LGUI(LALT(KC_J)),
+                                      MO(SYMB), KC_SPC,           MO(MUSE),
         // right hand
-        KC_ASTR,  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,             KC_BSPC,
-        KC_PLUS,  KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,             KC_BSLS,
-                  KC_H,   KC_J,    KC_K,    KC_L,   LT(MDIA, KC_SCLN),KC_MINS,
-        KC_EQL,   KC_N,   KC_M,    KC_COMM, KC_DOT, CTL_T(KC_SLSH),   KC_RSFT,
-                          KC_LEFT, KC_UP,   KC_DOWN,KC_RGHT,          KC_UNDS,
+        KC_ASTR,  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,     KC_BSPC,
+        KC_PLUS,  KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,     KC_BSLS,
+                  KC_H,   KC_J,    KC_K,    KC_L,   KC_SCLN,  KC_MINS,
+        KC_EQL,   KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
+                          KC_LEFT, KC_UP,   KC_DOWN,KC_RGHT,  KC_UNDS,
         KC_VOLU,  KC_ENTER,
         KC_VOLD,
         MO(SYMB), MO(MUSE), MO(MDIA)
